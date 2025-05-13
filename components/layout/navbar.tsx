@@ -37,7 +37,7 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-[#FF5A5F]/95 text-white backdrop-blur supports-[backdrop-filter]:bg-[#FF5A5F]/90">
       <div className="container flex h-14 items-center">
         <div className="mr-4 flex md:hidden">
           <Sheet>
@@ -56,7 +56,7 @@ export function Navbar() {
                   <Link key={item.name} href={item.href}>
                     <Button
                       variant={pathname === item.href ? "secondary" : "ghost"}
-                      className="w-full justify-start px-4 py-2 h-10"
+                      className="w-full justify-start px-4 py-2 h-10 text-white hover:bg-white/10"
                     >
                       <item.icon className="mr-2 h-4 w-4" />
                       {item.name}
@@ -69,7 +69,8 @@ export function Navbar() {
         </div>
 
         <Link href="/home" className="flex items-center space-x-2">
-          <span className="font-bold text-lg text-slate-800">Lag Dates</span>
+          <Heart className="h-5 w-5 mr-2 fill-white" />
+          <span className="font-bold text-lg text-white">Lag Dates</span>
         </Link>
 
         <div className="flex-1" />
@@ -78,7 +79,7 @@ export function Navbar() {
           <div className="hidden md:flex">
             {navItems.map((item) => (
               <Link key={item.name} href={item.href}>
-                <Button variant={pathname === item.href ? "secondary" : "ghost"} size="sm" className="text-sm">
+                <Button variant={pathname === item.href ? "secondary" : "ghost"} size="sm" className="text-sm text-white hover:bg-white/10">
                   <item.icon className="mr-2 h-4 w-4" />
                   {item.name}
                 </Button>
@@ -86,8 +87,8 @@ export function Navbar() {
             ))}
           </div>
 
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <Search className="h-5 w-5 text-slate-600" />
+          <Button variant="ghost" size="icon" className="rounded-full text-white hover:bg-white/10">
+            <Search className="h-5 w-5 text-white" />
             <span className="sr-only">Search</span>
           </Button>
 
@@ -95,13 +96,13 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full"
+              className="rounded-full text-white hover:bg-white/10"
               onClick={() => setShowNotifications(!showNotifications)}
             >
-              <Bell className="h-5 w-5 text-slate-600" />
+              <Bell className="h-5 w-5 text-white" />
               <span className="sr-only">Notifications</span>
             </Button>
-            <div className="absolute -top-1 -right-1 h-4 w-4 bg-coral-500 rounded-full flex items-center justify-center">
+            <div className="absolute -top-1 -right-1 h-4 w-4 bg-[#FFC1CC] rounded-full flex items-center justify-center">
               <span className="text-[10px] font-medium text-white">3</span>
             </div>
           </div>

@@ -82,11 +82,11 @@ export function SwipeDeck() {
     <div className="max-w-md mx-auto">
       <div className="swipe-card-container">
         <Card
-          className={`swipe-card border-sage-100 shadow-lg ${swipingDirection ? `swiping-${swipingDirection}` : ""}`}
+          className={`swipe-card border-[#FFC1CC]/30 shadow-lg ${swipingDirection ? `swiping-${swipingDirection}` : ""}`}
         >
-          <div className="relative h-[500px] bg-slate-100 flex items-center justify-center">
+          <div className="relative h-[500px] bg-[#FFC1CC]/10 flex items-center justify-center">
             <div className="absolute inset-0 flex items-center justify-center">
-              <GraduationCap className="h-24 w-24 text-slate-200" />
+              <GraduationCap className="h-24 w-24 text-[#FFC1CC]/40" />
             </div>
 
             {/* Profile info overlay */}
@@ -116,7 +116,7 @@ export function SwipeDeck() {
                 <p className="mb-3 text-white/90">{currentProfile.bio}</p>
                 <div className="flex flex-wrap gap-2 mb-2">
                   {currentProfile.interests.map((interest) => (
-                    <Badge key={interest} className="bg-white/20 hover:bg-white/30 text-white">
+                    <Badge key={interest} className="bg-[#FF5A5F]/70 hover:bg-[#FF5A5F]/80 text-white">
                       {interest}
                     </Badge>
                   ))}
@@ -151,7 +151,7 @@ export function SwipeDeck() {
             <Button
               variant="outline"
               size="icon"
-              className="h-12 w-12 rounded-full border-slate-200 text-slate-700 hover:bg-slate-50"
+              className="h-12 w-12 rounded-full border-[#FFC1CC]/30 text-[#333333] hover:bg-[#FFC1CC]/10"
               onClick={() => handleSwipe("left")}
             >
               <X className="h-6 w-6" />
@@ -159,14 +159,14 @@ export function SwipeDeck() {
             <Button
               variant="outline"
               size="icon"
-              className="h-12 w-12 rounded-full border-coral-200 text-coral-500 hover:bg-coral-50"
+              className="h-12 w-12 rounded-full border-[#5D5FEF]/30 text-[#5D5FEF] hover:bg-[#5D5FEF]/10"
             >
               <Star className="h-6 w-6" />
             </Button>
             <Button
               variant="outline"
               size="icon"
-              className="h-12 w-12 rounded-full border-sage-200 text-sage-500 hover:bg-sage-50"
+              className="h-12 w-12 rounded-full border-[#FF5A5F]/30 text-[#FF5A5F] hover:bg-[#FF5A5F]/10"
               onClick={() => handleSwipe("right")}
             >
               <Heart className="h-6 w-6" />
@@ -174,7 +174,7 @@ export function SwipeDeck() {
             <Button
               variant="outline"
               size="icon"
-              className="h-12 w-12 rounded-full border-slate-200 text-slate-700 hover:bg-slate-50"
+              className="h-12 w-12 rounded-full border-[#FFC1CC]/30 text-[#333333] hover:bg-[#FFC1CC]/10"
             >
               <MessageCircle className="h-6 w-6" />
             </Button>
@@ -183,7 +183,7 @@ export function SwipeDeck() {
       </div>
 
       <div className="mt-8 text-center">
-        <p className="text-slate-500">
+        <p className="text-[#FF5A5F]/70">
           {currentIndex + 1} of {profiles.length} potential matches
         </p>
       </div>
