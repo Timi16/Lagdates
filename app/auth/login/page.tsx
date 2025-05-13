@@ -28,16 +28,16 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-sage-50 to-slate-50 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-[#FF5A5F] to-[#FFC1CC] p-4">
       <Link href="/" className="mb-8 flex items-center gap-2">
-        <div className="bg-sage-500 p-1 rounded-full">
-          <Heart className="h-5 w-5 text-white fill-white" />
+        <div className="bg-white p-1 rounded-full">
+          <Heart className="h-5 w-5 text-[#FF5A5F] fill-[#FF5A5F]" />
         </div>
-        <span className="text-2xl font-bold text-slate-800">Lag Dates</span>
+        <span className="text-2xl font-bold text-white">Lag Dates</span>
       </Link>
 
-      <Card className="w-full max-w-md border-sage-100 shadow-lg">
-        <CardHeader className="space-y-1 bg-gradient-to-r from-sage-500 to-coral-500 text-white rounded-t-xl">
+      <Card className="w-full max-w-md border-white/20 shadow-lg">
+        <CardHeader className="space-y-1 bg-gradient-to-r from-[#FF5A5F] via-[#FF5A5F] to-[#FFC1CC] text-white rounded-t-xl">
           <CardTitle className="text-2xl font-bold">Welcome back</CardTitle>
           <CardDescription className="text-white/90">Enter your credentials to sign in to your account</CardDescription>
         </CardHeader>
@@ -52,7 +52,7 @@ export default function LoginPage() {
                   id="email"
                   placeholder="you@university.edu"
                   type="email"
-                  className="pl-10 border-slate-200 focus-visible:ring-sage-500"
+                  className="pl-10 border-slate-200 focus-visible:ring-[#FF5A5F]"
                   required
                 />
               </div>
@@ -61,7 +61,7 @@ export default function LoginPage() {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <Link href="/auth/forgot-password" className="text-xs text-sage-600 hover:text-sage-700">
+                <Link href="/auth/forgot-password" className="text-xs text-[#FF5A5F] hover:text-[#FF5A5F]/80">
                   Forgot password?
                 </Link>
               </div>
@@ -70,7 +70,7 @@ export default function LoginPage() {
                 <Input
                   id="password"
                   type="password"
-                  className="pl-10 border-slate-200 focus-visible:ring-sage-500"
+                  className="pl-10 border-slate-200 focus-visible:ring-[#FF5A5F]"
                   required
                 />
               </div>
@@ -79,7 +79,7 @@ export default function LoginPage() {
             <div className="flex items-center space-x-2">
               <Checkbox
                 id="remember"
-                className="data-[state=checked]:bg-sage-500 data-[state=checked]:border-sage-500"
+                className="data-[state=checked]:bg-[#FF5A5F] data-[state=checked]:border-[#FF5A5F]"
               />
               <label
                 htmlFor="remember"
@@ -91,13 +91,13 @@ export default function LoginPage() {
           </CardContent>
 
           <CardFooter className="flex flex-col">
-            <Button type="submit" className="w-full bg-sage-500 hover:bg-sage-600" disabled={isLoading}>
+            <Button type="submit" className="w-full bg-white text-[#FF5A5F] hover:bg-white/90" disabled={isLoading}>
               {isLoading ? "Signing in..." : "Sign In"}
             </Button>
 
             <div className="mt-4 text-center">
-              <span className="text-sm text-slate-500">Don't have an account? </span>
-              <Link href="/auth/signup" className="text-sm text-sage-600 hover:text-sage-700">
+              <span className="text-sm text-white/80">Don't have an account? </span>
+              <Link href="/auth/signup" className="text-sm text-white font-medium hover:text-white/80">
                 Sign up
               </Link>
             </div>
