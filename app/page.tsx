@@ -24,29 +24,29 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-10 md:mb-0">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        <div className="container mx-auto px-4 py-8 md:py-24 flex flex-col md:flex-row items-center">
+          <div className="w-full md:w-1/2 mb-10 md:mb-0">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
               Find Your Perfect Campus Connection
             </h1>
-            <p className="text-xl mb-8 text-white/90 max-w-lg">
+            <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 text-white/90 max-w-lg">
               Lag Dates connects university students based on shared interests, classes, and campus activities. Meet,
               chat, and date within your campus community.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/auth/signup">
-                <Button size="lg" className="bg-white text-[#FF5A5F] hover:bg-white/90">
+                <Button size="lg" className="bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 border-none shadow-md">
                   Create Free Account
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="h-5 w-5" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="!bg-white !text-[#FF5A5F] hover:!bg-white/80 active:!bg-white/70 transition-colors duration-100 border-none shadow-md">
                 Learn More
               </Button>
             </div>
           </div>
-          <div className="md:w-1/2 relative">
-            <div className="relative h-[500px] w-full max-w-md mx-auto">
+          <div className="w-full md:w-1/2 relative">
+            <div className="relative h-[400px] sm:h-[500px] w-full max-w-[300px] sm:max-w-md mx-auto">
               {/* Phone mockup */}
               <div className="absolute inset-0 bg-slate-800 rounded-[3rem] border-[8px] border-slate-700 shadow-xl overflow-hidden">
                 {/* App screen mockup */}
@@ -68,13 +68,13 @@ export default function LandingPage() {
                   <div className="p-4">
                     <div className="relative h-[350px] rounded-xl overflow-hidden shadow-lg mb-4">
                       <img
-                        src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80"
+                        src="https://images.unsplash.com/photo-1517677129300-07b130802f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80"
                         alt="Profile"
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                        <h3 className="text-white text-xl font-bold">Tiana, 21</h3>
-                        <p className="text-white/90">Computer Science • 2 miles away</p>
+                        <h3 className="text-white text-xl font-bold">Chioma, 21</h3>
+                        <p className="text-white/90">Computer Science • UNILAG • 2 miles away</p>
                       </div>
                     </div>
 
@@ -159,24 +159,24 @@ export default function LandingPage() {
             {[
               {
                 quote:
-                  "I met my girlfriend in the same Computer Science class through Lag Dates. The app made it so easy to connect!",
-                name: "Michael S.",
-                university: "Stanford University",
-                image: "/placeholder.svg?height=60&width=60",
+                  "I met my girlfriend in the same Computer Science class through Lag Dates. It's been amazing connecting with someone who shares my passion!",
+                name: "Oluwaseun A.",
+                university: "University of Lagos",
+                image: "https://images.unsplash.com/photo-1539701938214-0d9736e1c16b?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
               },
               {
                 quote:
-                  "As a transfer student, Lag Dates helped me make friends and even find a study group for my classes.",
-                name: "Emma L.",
-                university: "UC Berkeley",
-                image: "/placeholder.svg?height=60&width=60",
+                  "As a new student, Lag Dates helped me make friends and even find a study group for my challenging courses.",
+                name: "Amara O.",
+                university: "University of Ibadan",
+                image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
               },
               {
                 quote:
-                  "The campus events feature is amazing! I've attended so many fun activities and met great people.",
-                name: "James T.",
-                university: "UCLA",
-                image: "/placeholder.svg?height=60&width=60",
+                  "The campus events feature is brilliant! I've attended so many social gatherings and met wonderful people.",
+                name: "Tunde F.",
+                university: "Covenant University",
+                image: "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
               },
             ].map((testimonial, i) => (
               <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
@@ -215,22 +215,24 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
-              "Stanford University",
-              "UC Berkeley",
-              "UCLA",
-              "USC",
-              "Harvard University",
-              "MIT",
-              "Yale University",
-              "Princeton University",
+              { name: "University of Lagos", abbr: "UNILAG", logo: "U" },
+              { name: "University of Ibadan", abbr: "UI", logo: "U" },
+              { name: "Covenant University", abbr: "CU", logo: "C" },
+              { name: "Obafemi Awolowo University", abbr: "OAU", logo: "O" },
+              { name: "University of Nigeria", abbr: "UNN", logo: "U" },
+              { name: "Ahmadu Bello University", abbr: "ABU", logo: "A" },
+              { name: "University of Benin", abbr: "UNIBEN", logo: "U" },
+              { name: "University of Port Harcourt", abbr: "UNIPORT", logo: "U" },
             ].map((university, i) => (
-              <div key={i} className="bg-white rounded-lg p-4 text-center shadow-md border border-slate-100">
-                <div className="h-12 w-12 bg-slate-200 rounded-full mx-auto mb-3 flex items-center justify-center">
-                  <span className="font-bold text-slate-500">{university.charAt(0)}</span>
+              <div key={i} className="bg-white rounded-lg p-4 text-center shadow-md border border-slate-100 relative overflow-hidden transition-transform hover:scale-105">
+                <div className="absolute top-0 right-0 bg-[#FF5A5F] text-white text-xs py-1 px-3 rounded-bl-lg font-medium">Coming soon</div>
+                <div className="h-16 w-16 bg-slate-200 rounded-full mx-auto mb-3 flex items-center justify-center">
+                  <span className="font-bold text-slate-500 text-xl">{university.logo}</span>
                 </div>
-                <p className="font-medium text-slate-700">{university}</p>
+                <p className="font-medium text-slate-700">{university.name}</p>
+                <p className="text-slate-500 text-sm">{university.abbr}</p>
               </div>
             ))}
           </div>
@@ -247,7 +249,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {[
               {
                 title: "Unlimited Matches",
@@ -286,7 +288,7 @@ export default function LandingPage() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-white text-[#FF5A5F] hover:bg-white/90">
+            <Button size="lg" className="bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 border-none shadow-md">
               Upgrade to Premium
             </Button>
           </div>
@@ -302,12 +304,12 @@ export default function LandingPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/auth/signup">
-              <Button size="lg" className="bg-white text-[#FF5A5F] hover:bg-white/90">
+              <Button size="lg" className="bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 border-none shadow-md">
                 Create Free Account
               </Button>
             </Link>
             <Link href="/auth/login">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" className="bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 border-none shadow-md">
                 Sign In
               </Button>
             </Link>

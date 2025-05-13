@@ -38,11 +38,11 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-[#FF5A5F]/95 text-white backdrop-blur supports-[backdrop-filter]:bg-[#FF5A5F]/90">
-      <div className="container flex h-14 items-center">
+      <div className="container px-2 sm:px-4 flex h-14 items-center">
         <div className="mr-4 flex md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon" className="md:hidden bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
@@ -55,8 +55,8 @@ export function Navbar() {
                 {navItems.map((item) => (
                   <Link key={item.name} href={item.href}>
                     <Button
-                      variant={pathname === item.href ? "secondary" : "ghost"}
-                      className="w-full justify-start px-4 py-2 h-10 text-white hover:bg-white/10"
+                      variant="ghost"
+                      className="w-full justify-start px-4 py-2 h-10 bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100"
                     >
                       <item.icon className="mr-2 h-4 w-4" />
                       {item.name}
@@ -68,9 +68,9 @@ export function Navbar() {
           </Sheet>
         </div>
 
-        <Link href="/home" className="flex items-center space-x-2">
+        <Link href="/home" className="flex items-center">
           <Heart className="h-5 w-5 mr-2 fill-white" />
-          <span className="font-bold text-lg text-white">Lag Dates</span>
+          <span className="font-bold text-lg text-white whitespace-nowrap">Lag Dates</span>
         </Link>
 
         <div className="flex-1" />
@@ -79,16 +79,16 @@ export function Navbar() {
           <div className="hidden md:flex">
             {navItems.map((item) => (
               <Link key={item.name} href={item.href}>
-                <Button variant={pathname === item.href ? "secondary" : "ghost"} size="sm" className="text-sm text-white hover:bg-white/10">
-                  <item.icon className="mr-2 h-4 w-4" />
-                  {item.name}
+                <Button variant="ghost" size="sm" className="text-sm bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 px-2 md:px-3">
+                  <item.icon className="mr-1 md:mr-2 h-4 w-4" />
+                  <span className="hidden sm:inline">{item.name}</span>
                 </Button>
               </Link>
             ))}
           </div>
 
-          <Button variant="ghost" size="icon" className="rounded-full text-white hover:bg-white/10">
-            <Search className="h-5 w-5 text-white" />
+          <Button variant="ghost" size="icon" className="rounded-full bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100">
+            <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
           </Button>
 
@@ -96,10 +96,10 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full text-white hover:bg-white/10"
+              className="rounded-full bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100"
               onClick={() => setShowNotifications(!showNotifications)}
             >
-              <Bell className="h-5 w-5 text-white" />
+              <Bell className="h-5 w-5" />
               <span className="sr-only">Notifications</span>
             </Button>
             <div className="absolute -top-1 -right-1 h-4 w-4 bg-[#FFC1CC] rounded-full flex items-center justify-center">
@@ -109,34 +109,34 @@ export function Navbar() {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Avatar className="h-8 w-8 cursor-pointer">
+              <Avatar className="h-8 w-8 cursor-pointer bg-white text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 border-2 border-white">
                 <AvatarImage src="/placeholder.svg?height=32&width=32" />
                 <AvatarFallback>JD</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
+            <DropdownMenuContent align="end" className="w-56 bg-white border-none shadow-lg">
+              <DropdownMenuLabel className="text-[#FF5A5F] font-bold">My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator className="bg-[#FF5A5F]/20" />
               <Link href="/profile">
-                <DropdownMenuItem>
+                <DropdownMenuItem className="text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 cursor-pointer">
                   <User className="mr-2 h-4 w-4" />
                   <span>Profile</span>
                 </DropdownMenuItem>
               </Link>
               <Link href="/matches">
-                <DropdownMenuItem>
+                <DropdownMenuItem className="text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 cursor-pointer">
                   <Heart className="mr-2 h-4 w-4" />
                   <span>Matches</span>
                 </DropdownMenuItem>
               </Link>
               <Link href="/settings">
-                <DropdownMenuItem>
+                <DropdownMenuItem className="text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 cursor-pointer">
                   <User className="mr-2 h-4 w-4" />
                   <span>Settings</span>
                 </DropdownMenuItem>
               </Link>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem className="text-red-500 focus:text-red-500 cursor-pointer" onClick={handleLogout}>
+              <DropdownMenuSeparator className="bg-[#FF5A5F]/20" />
+              <DropdownMenuItem className="!text-red-500 hover:!text-red-600 hover:bg-white/80 active:bg-white/70 transition-colors duration-100 cursor-pointer" onClick={handleLogout}>
                 <span>Log out</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
