@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
-import { School, Lock } from "lucide-react"
+import { School, Lock, Heart } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 
@@ -50,22 +50,25 @@ export default function SignupPage() {
   }
   
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-slate-50 to-slate-100 p-4">
-      <Link href="/" className="mb-8 flex items-center text-2xl font-bold text-slate-800">
-        <span className="bg-gradient-to-r from-[#FF5A5F] to-[#FFC1CC] text-transparent bg-clip-text">Lag Dates</span>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-[#FF5A5F] to-[#FFC1CC] p-4">
+      <Link href="/" className="mb-8 flex items-center gap-2">
+        <div className="bg-white p-1 rounded-full">
+          <School className="h-5 w-5 text-[#FF5A5F] fill-[#FF5A5F]" />
+        </div>
+        <span className="text-2xl font-bold text-white">Lag Dates</span>
       </Link>
 
-      <Card className="w-full max-w-md border-slate-100 shadow-lg">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-slate-800">Create an account</CardTitle>
-          <CardDescription>Join the campus dating community in {step} easy steps</CardDescription>
+      <Card className="w-full max-w-md border-white/20 shadow-lg">
+        <CardHeader className="space-y-1 bg-gradient-to-r from-[#FF5A5F] via-[#FF5A5F] to-[#FFC1CC] text-white rounded-t-xl">
+          <CardTitle className="text-2xl font-bold">Create an account</CardTitle>
+          <CardDescription className="text-white/90">Join the campus dating community in {step} easy steps</CardDescription>
         </CardHeader>
         
         <Tabs value={`step-${step}`} className="w-full">
-          <TabsList className="grid grid-cols-3 mb-4">
-            <TabsTrigger value="step-1" disabled>Basic Info</TabsTrigger>
-            <TabsTrigger value="step-2" disabled>Profile</TabsTrigger>
-            <TabsTrigger value="step-3" disabled>Preferences</TabsTrigger>
+          <TabsList className="grid grid-cols-3 mb-4 bg-white/20">
+            <TabsTrigger value="step-1" disabled className="data-[state=active]:bg-white data-[state=active]:text-[#FF5A5F]">Basic Info</TabsTrigger>
+            <TabsTrigger value="step-2" disabled className="data-[state=active]:bg-white data-[state=active]:text-[#FF5A5F]">Profile</TabsTrigger>
+            <TabsTrigger value="step-3" disabled className="data-[state=active]:bg-white data-[state=active]:text-[#FF5A5F]">Preferences</TabsTrigger>
           </TabsList>
           
           <TabsContent value="step-1">
@@ -73,7 +76,7 @@ export default function SignupPage() {
               <div className="space-y-2">
                 <Label htmlFor="signup-email">University Email</Label>
                 <div className="relative">
-                  <School className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
+                  <School className="absolute left-3 top-3 h-4 w-4 text-[#FF5A5F]/70" />
                   <Input
                     id="signup-email"
                     placeholder="you@university.edu"
@@ -81,7 +84,7 @@ export default function SignupPage() {
                     className="pl-10 border-slate-200 focus-visible:ring-[#FF5A5F]"
                   />
                 </div>
-                <p className="text-xs text-slate-500">Must be a valid university email address</p>
+                <p className="text-xs text-gray-600">Must be a valid university email address</p>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -96,7 +99,7 @@ export default function SignupPage() {
               <div className="space-y-2">
                 <Label htmlFor="signup-password">Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
+                  <Lock className="absolute left-3 top-3 h-4 w-4 text-[#FF5A5F]/70" />
                   <Input
                     id="signup-password"
                     type="password"
@@ -131,18 +134,18 @@ export default function SignupPage() {
             <CardContent className="space-y-4">
               <div className="text-center pb-4">
                 <h3 className="text-lg font-medium">Upload Profile Picture</h3>
-                <p className="text-sm text-slate-500">Choose a photo that clearly shows your face</p>
+                <p className="text-sm text-gray-600">Choose a photo that clearly shows your face</p>
               </div>
               
               <div className="flex flex-col items-center gap-4">
                 <div 
-                  className="h-32 w-32 rounded-full border-2 border-dashed border-slate-300 flex items-center justify-center cursor-pointer hover:border-[#FF5A5F] transition-colors"
+                  className="h-32 w-32 rounded-full border-2 border-dashed border-white/50 bg-white/20 flex items-center justify-center cursor-pointer hover:border-white transition-colors"
                   onClick={triggerImageUpload}
                 >
                   {profileImage ? (
                     <img src={profileImage} alt="Profile" className="h-full w-full object-cover rounded-full" />
                   ) : (
-                    <span className="text-slate-400 text-sm text-center px-2">Click to upload</span>
+                    <span className="text-white/70 text-sm text-center px-2">Click to upload</span>
                   )}
                 </div>
                 
@@ -169,7 +172,7 @@ export default function SignupPage() {
             <CardContent className="space-y-4">
               <div className="text-center pb-4">
                 <h3 className="text-lg font-medium">Almost Done!</h3>
-                <p className="text-sm text-slate-500">Tell us what you're looking for</p>
+                <p className="text-sm text-gray-600">Tell us what you're looking for</p>
               </div>
               
               <div className="space-y-4">
@@ -180,7 +183,7 @@ export default function SignupPage() {
                       <Button
                         key={option}
                         variant="outline"
-                        className="border-slate-200 hover:border-[#FF5A5F] hover:text-[#FF5A5F]"
+                        className="bg-white/20 border-white/30 text-white hover:bg-white hover:text-[#FF5A5F]"
                       >
                         {option}
                       </Button>
@@ -195,7 +198,7 @@ export default function SignupPage() {
                       <Button
                         key={option}
                         variant="outline"
-                        className="border-slate-200 hover:border-[#FF5A5F] hover:text-[#FF5A5F]"
+                        className="bg-white/20 border-white/30 text-white hover:bg-white hover:text-[#FF5A5F]"
                       >
                         {option}
                       </Button>
@@ -205,7 +208,7 @@ export default function SignupPage() {
               </div>
               
               <Button 
-                className="w-full mt-6 bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 border border-[#FF5A5F]" 
+                className="w-full bg-white text-[#FF5A5F] hover:bg-white/90" 
                 onClick={handleCreateAccount}
                 disabled={isLoading}
               >
