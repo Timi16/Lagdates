@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -18,8 +18,11 @@ import {
 
 export function Navbar() {
   const [showNotifications, setShowNotifications] = useState(false)
+  const [showSearch, setShowSearch] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
+  const notificationRef = useRef<HTMLDivElement>(null)
+  const searchRef = useRef<HTMLDivElement>(null)
 
   const navItems = [
     { name: "Home", href: "/home", icon: Home },
@@ -35,6 +38,22 @@ export function Navbar() {
     // For this demo, we'll just redirect to the landing page
     router.push("/")
   }
+  
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (notificationRef.current && !notificationRef.current.contains(event.target as Node)) {
+        setShowNotifications(false);
+      }
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setShowSearch(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-[#FF5A5F]/95 text-white backdrop-blur supports-[backdrop-filter]:bg-[#FF5A5F]/90">
@@ -87,12 +106,35 @@ export function Navbar() {
             ))}
           </div>
 
-          <Button variant="ghost" size="icon" className="rounded-full bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100">
-            <Search className="h-5 w-5" />
-            <span className="sr-only">Search</span>
-          </Button>
+          <div className="relative" ref={searchRef}>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="rounded-full bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100"
+              onClick={() => setShowSearch(!showSearch)}
+            >
+              <Search className="h-5 w-5" />
+              <span className="sr-only">Search</span>
+            </Button>
+            
+            {showSearch && (
+              <div className="absolute right-0 top-full mt-2 w-72 bg-white rounded-lg shadow-lg overflow-hidden z-50 border border-[#FF5A5F]/10 animate-in slide-in-from-top-5 fade-in-20">
+                <div className="p-3">
+                  <h3 className="font-medium text-[#FF5A5F] mb-2">Search</h3>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#FF5A5F]/70" />
+                    <input 
+                      placeholder="Search for people, events, groups..." 
+                      className="w-full pl-9 pr-4 py-2 border border-[#FF5A5F]/20 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF5A5F]/30"
+                    />
+                  </div>
+                  <div className="mt-2 text-xs text-gray-500">Press Enter to search</div>
+                </div>
+              </div>
+            )}
+          </div>
 
-          <div className="relative">
+          <div className="relative" ref={notificationRef}>
             <Button
               variant="ghost"
               size="icon"
@@ -105,6 +147,64 @@ export function Navbar() {
             <div className="absolute -top-1 -right-1 h-4 w-4 bg-[#FFC1CC] rounded-full flex items-center justify-center">
               <span className="text-[10px] font-medium text-white">3</span>
             </div>
+            
+            {showNotifications && (
+              <div className="absolute right-0 top-full mt-2 w-80 bg-white rounded-lg shadow-lg overflow-hidden z-50 border border-[#FF5A5F]/10 animate-in slide-in-from-top-5 fade-in-20">
+                <div className="p-3 border-b border-[#FF5A5F]/10">
+                  <h3 className="font-medium text-[#FF5A5F]">Notifications</h3>
+                </div>
+                <div className="max-h-96 overflow-y-auto">
+                  {[
+                    {
+                      id: 1,
+                      title: "New Match!",
+                      message: "You matched with Sophia. Send a message to start a conversation!",
+                      time: "Just now",
+                      read: false,
+                    },
+                    {
+                      id: 2,
+                      title: "Event Reminder",
+                      message: "'Coffee Meetup' is starting in 30 minutes at Campus Cafe",
+                      time: "30m ago",
+                      read: false,
+                    },
+                    {
+                      id: 3,
+                      title: "New Message",
+                      message: "Alex sent you a new message",
+                      time: "1h ago",
+                      read: false,
+                    },
+                    {
+                      id: 4,
+                      title: "Profile Visit",
+                      message: "Someone viewed your profile recently",
+                      time: "3h ago",
+                      read: true,
+                    },
+                  ].map((notification) => (
+                    <div 
+                      key={notification.id} 
+                      className={`p-3 border-b border-[#FF5A5F]/10 hover:bg-[#FF5A5F]/5 transition-colors cursor-pointer ${
+                        !notification.read ? 'bg-[#FF5A5F]/5' : ''
+                      }`}
+                    >
+                      <div className="flex justify-between items-start mb-1">
+                        <h4 className="font-medium text-[#FF5A5F]">{notification.title}</h4>
+                        <span className="text-xs text-gray-500">{notification.time}</span>
+                      </div>
+                      <p className="text-sm text-gray-700">{notification.message}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="p-2 border-t border-[#FF5A5F]/10 bg-[#FF5A5F]/5">
+                  <button className="w-full text-center text-sm text-[#FF5A5F] py-1 hover:underline">
+                    Mark all as read
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           <DropdownMenu>
