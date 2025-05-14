@@ -104,24 +104,32 @@ export default function SignupPage() {
                     id="signup-password"
                     type="password"
                     className="pl-10 border-slate-200 focus-visible:ring-[#FF5A5F]"
+                    required
+                    minLength={8}
                   />
                 </div>
-                <p className="text-xs text-slate-500">Must be at least 8 characters</p>
+                <p className="text-xs text-gray-600">Must be at least 8 characters</p>
               </div>
-              <div className="flex items-start space-x-2 pt-2">
-                <Checkbox
-                  id="terms"
-                  className="mt-1 data-[state=checked]:bg-[#FF5A5F] data-[state=checked]:border-[#FF5A5F]"
-                />
-                <label htmlFor="terms" className="text-sm text-slate-600">
-                  I agree to the&nbsp;
-                  <Link href="/terms" className="text-[#FF5A5F] hover:underline">Terms of Service</Link>&nbsp;and&nbsp;
-                  <Link href="/privacy" className="text-[#FF5A5F] hover:underline">Privacy Policy</Link>
+              
+              <div className="flex items-center space-x-2 mt-2">
+                <Checkbox id="terms" className="data-[state=checked]:bg-[#FF5A5F] data-[state=checked]:border-[#FF5A5F]" />
+                <label
+                  htmlFor="terms"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  I agree to the{" "}
+                  <Link href="/terms" className="text-[#FF5A5F] hover:underline">
+                    Terms of Service
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/privacy" className="text-[#FF5A5F] hover:underline">
+                    Privacy Policy
+                  </Link>
                 </label>
               </div>
               
               <Button 
-                className="w-full mt-6 bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 border border-[#FF5A5F]" 
+                className="w-full bg-white text-[#FF5A5F] hover:bg-white/90" 
                 onClick={handleNextStep}
                 disabled={isLoading}
               >
@@ -162,7 +170,7 @@ export default function SignupPage() {
               </div>
               
               <Button 
-                className="w-full mt-6 bg-white !text-[#FF5A5F] hover:bg-white/80 active:bg-white/70 transition-colors duration-100 border border-[#FF5A5F]" 
+                className="w-full mt-6 bg-white !text-[#FF5A5F] hover:bg-white/90" 
                 onClick={handleNextStep}
                 disabled={isLoading}
               >
@@ -174,19 +182,19 @@ export default function SignupPage() {
           <TabsContent value="step-3">
             <CardContent className="space-y-4">
               <div className="text-center pb-4">
-                <h3 className="text-lg font-medium">Almost Done!</h3>
-                <p className="text-sm text-gray-600">Tell us what you're looking for</p>
+                <h3 className="text-lg font-medium text-[#FF5A5F]">Almost Done!</h3>
+                <p className="text-sm text-white">Tell us what you're looking for</p>
               </div>
               
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label>I'm interested in</Label>
+                  <Label className="text-[#FF5A5F] font-medium">I'm interested in</Label>
                   <div className="grid grid-cols-3 gap-2">
                     {["Women", "Men", "Everyone"].map((option) => (
                       <Button
                         key={option}
                         variant="outline"
-                        className="bg-white/20 border-white/30 text-white hover:bg-white hover:text-[#FF5A5F]"
+                        className="bg-white border-[#FF5A5F] text-[#FF5A5F] hover:bg-[#FF5A5F] hover:text-white font-medium shadow-sm"
                       >
                         {option}
                       </Button>
@@ -195,13 +203,13 @@ export default function SignupPage() {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label>Looking for</Label>
+                  <Label className="text-[#FF5A5F] font-medium">Looking for</Label>
                   <div className="grid grid-cols-2 gap-2">
                     {["Dating", "Friendship", "Study Partners", "Networking"].map((option) => (
                       <Button
                         key={option}
                         variant="outline"
-                        className="bg-white/20 border-white/30 text-white hover:bg-white hover:text-[#FF5A5F]"
+                        className="bg-white border-[#FF5A5F] text-[#FF5A5F] hover:bg-[#FF5A5F] hover:text-white font-medium shadow-sm"
                       >
                         {option}
                       </Button>
