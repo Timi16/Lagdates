@@ -139,13 +139,16 @@ export default function SignupPage() {
               
               <div className="flex flex-col items-center gap-4">
                 <div 
-                  className="h-32 w-32 rounded-full border-2 border-dashed border-white/50 bg-white/20 flex items-center justify-center cursor-pointer hover:border-white transition-colors"
+                  className="h-32 w-32 rounded-full border-4 border-dashed border-[#FF5A5F] bg-white flex items-center justify-center cursor-pointer hover:border-[#FF5A5F]/80 transition-colors shadow-lg"
                   onClick={triggerImageUpload}
                 >
                   {profileImage ? (
                     <img src={profileImage} alt="Profile" className="h-full w-full object-cover rounded-full" />
                   ) : (
-                    <span className="text-white/70 text-sm text-center px-2">Click to upload</span>
+                    <div className="flex flex-col items-center justify-center">
+                      <School className="h-8 w-8 text-[#FF5A5F] mb-1" />
+                      <span className="text-[#FF5A5F] font-medium text-sm text-center px-2">Click to upload</span>
+                    </div>
                   )}
                 </div>
                 
