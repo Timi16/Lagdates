@@ -16,6 +16,8 @@ export default function SignupPage() {
   const [step, setStep] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const [profileImage, setProfileImage] = useState<string | null>(null)
+  const [interestedIn, setInterestedIn] = useState<string | null>(null)
+  const [lookingFor, setLookingFor] = useState<string[]>([])
   const fileInputRef = useRef<HTMLInputElement>(null)
   
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -194,7 +196,11 @@ export default function SignupPage() {
                       <Button
                         key={option}
                         variant="outline"
-                        className="bg-white border-[#FF5A5F] text-[#FF5A5F] hover:bg-[#FF5A5F] hover:text-white font-medium shadow-sm"
+                        className={`${interestedIn === option 
+                          ? 'bg-[#FF5A5F] text-white' 
+                          : 'bg-white text-[#FF5A5F]'} 
+                          border-[#FF5A5F] font-medium shadow-sm hover:opacity-90`}
+                        onClick={() => setInterestedIn(option)}
                       >
                         {option}
                       </Button>
@@ -209,7 +215,17 @@ export default function SignupPage() {
                       <Button
                         key={option}
                         variant="outline"
-                        className="bg-white border-[#FF5A5F] text-[#FF5A5F] hover:bg-[#FF5A5F] hover:text-white font-medium shadow-sm"
+                        className={`${lookingFor.includes(option) 
+                          ? 'bg-[#FF5A5F] text-white' 
+                          : 'bg-white text-[#FF5A5F]'} 
+                          border-[#FF5A5F] font-medium shadow-sm hover:opacity-90`}
+                        onClick={() => {
+                          if (lookingFor.includes(option)) {
+                            setLookingFor(lookingFor.filter(item => item !== option))
+                          } else {
+                            setLookingFor([...lookingFor, option])
+                          }
+                        }}
                       >
                         {option}
                       </Button>
