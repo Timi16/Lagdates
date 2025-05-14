@@ -61,33 +61,29 @@ export default function MessagesPage() {
   ]
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#FF5A5F] to-[#FFC1CC]">
       <Navbar />
 
       <main className="flex-1 container mx-auto py-8 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-slate-800">Messages</h1>
-            <Button className="bg-sage-500 hover:bg-sage-600">
-              <Plus className="h-4 w-4 mr-2" />
-              New Message
-            </Button>
+            <h1 className="text-3xl font-bold text-white">Messages</h1>
           </div>
 
           <div className="relative mb-6">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-            <Input placeholder="Search messages..." className="pl-9 border-slate-200 focus-visible:ring-sage-500" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#FF5A5F]/70" />
+            <Input placeholder="Search messages..." className="pl-9 border-white/30 bg-white/80 focus-visible:ring-[#FF5A5F] shadow-md" />
           </div>
 
           <Tabs defaultValue="all">
-            <TabsList className="mb-6">
-              <TabsTrigger value="all">All Messages</TabsTrigger>
-              <TabsTrigger value="unread">Unread</TabsTrigger>
-              <TabsTrigger value="archived">Archived</TabsTrigger>
+            <TabsList className="mb-6 bg-white/20">
+              <TabsTrigger value="all" className="data-[state=active]:bg-white data-[state=active]:text-[#FF5A5F]">All Messages</TabsTrigger>
+              <TabsTrigger value="unread" className="data-[state=active]:bg-white data-[state=active]:text-[#FF5A5F]">Unread</TabsTrigger>
+              <TabsTrigger value="archived" className="data-[state=active]:bg-white data-[state=active]:text-[#FF5A5F]">Archived</TabsTrigger>
             </TabsList>
 
             <TabsContent value="all">
-              <Card className="border-sage-100 overflow-hidden">
+              <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm overflow-hidden">
                 {matches.map((match, index) => (
                   <Link href={`/messages/${match.id}`} key={match.id}>
                     <div
@@ -114,7 +110,7 @@ export default function MessagesPage() {
                           {match.lastMessage}
                         </p>
                       </div>
-                      {match.unread && <div className="h-2.5 w-2.5 rounded-full bg-sage-500" />}
+                      {match.unread && <div className="h-2.5 w-2.5 rounded-full bg-[#FF5A5F]" />}
                     </div>
                   </Link>
                 ))}
@@ -122,7 +118,7 @@ export default function MessagesPage() {
             </TabsContent>
 
             <TabsContent value="unread">
-              <Card className="border-sage-100 overflow-hidden">
+              <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm overflow-hidden">
                 {matches
                   .filter((match) => match.unread)
                   .map((match, index, filtered) => (
@@ -143,7 +139,7 @@ export default function MessagesPage() {
                           </div>
                           <p className="text-sm text-slate-800 font-medium truncate">{match.lastMessage}</p>
                         </div>
-                        <div className="h-2.5 w-2.5 rounded-full bg-sage-500" />
+                        <div className="h-2.5 w-2.5 rounded-full bg-[#FF5A5F]" />
                       </div>
                     </Link>
                   ))}
@@ -157,7 +153,7 @@ export default function MessagesPage() {
             </TabsContent>
 
             <TabsContent value="archived">
-              <Card className="border-sage-100">
+              <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm">
                 <div className="text-center py-12">
                   <p className="text-slate-500">No archived messages</p>
                 </div>

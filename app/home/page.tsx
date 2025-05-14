@@ -44,28 +44,28 @@ export default function HomePage() {
     <>
       {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
 
-      <div className="min-h-screen flex flex-col bg-slate-50">
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#FF5A5F] to-[#FFC1CC]">
         <Navbar />
 
         <main className="flex-1 container mx-auto py-4 px-4 md:py-8">
           {/* Welcome Header */}
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-slate-800">Hey, Jessica! 👋</h1>
-              <p className="text-slate-500">Ready to make some connections today?</p>
+              <h1 className="text-2xl md:text-3xl font-bold text-white">Hey, Jessica! 👋</h1>
+              <p className="text-white/80">Ready to make some connections today?</p>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Search className="h-5 w-5 text-slate-600" />
+              <Button variant="ghost" size="icon" className="rounded-full bg-white/20 hover:bg-white/30">
+                <Search className="h-5 w-5 text-white" />
                 <span className="sr-only">Search</span>
               </Button>
               <div className="relative">
-                <Button variant="ghost" size="icon" className="rounded-full">
-                  <Bell className="h-5 w-5 text-slate-600" />
+                <Button variant="ghost" size="icon" className="rounded-full bg-white/20 hover:bg-white/30">
+                  <Bell className="h-5 w-5 text-white" />
                   <span className="sr-only">Notifications</span>
                 </Button>
-                <div className="absolute -top-1 -right-1 h-4 w-4 bg-coral-500 rounded-full flex items-center justify-center">
-                  <span className="text-[10px] font-medium text-white">3</span>
+                <div className="absolute -top-1 -right-1 h-4 w-4 bg-white rounded-full flex items-center justify-center">
+                  <span className="text-[10px] font-medium text-[#FF5A5F]">3</span>
                 </div>
               </div>
             </div>
@@ -78,29 +78,29 @@ export default function HomePage() {
               {/* Quick Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
-                  { label: "Profile Views", value: "128", icon: Users, color: "bg-sage-100 text-sage-600" },
-                  { label: "Matches", value: "24", icon: Heart, color: "bg-coral-100 text-coral-600" },
-                  { label: "Messages", value: "12", icon: MessageCircle, color: "bg-slate-100 text-slate-600" },
-                  { label: "Likes", value: "36", icon: Star, color: "bg-amber-100 text-amber-600" },
+                  { label: "Profile Views", value: "128", icon: Users },
+                  { label: "Matches", value: "24", icon: Heart },
+                  { label: "Messages", value: "12", icon: MessageCircle },
+                  { label: "Likes", value: "36", icon: Star },
                 ].map((stat, i) => (
-                  <Card key={i} className="border-none shadow-sm">
+                  <Card key={i} className="border-none shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white/90 transition-colors">
                     <CardContent className="p-4 flex flex-col items-center text-center">
-                      <div className={`${stat.color} p-2 rounded-full mb-2`}>
+                      <div className={`bg-[#FF5A5F]/10 text-[#FF5A5F] p-2 rounded-full mb-2`}>
                         <stat.icon className="h-5 w-5" />
                       </div>
-                      <p className="text-2xl font-bold">{stat.value}</p>
-                      <p className="text-xs text-slate-500">{stat.label}</p>
+                      <p className="text-2xl font-bold text-[#FF5A5F]">{stat.value}</p>
+                      <p className="text-xs font-medium text-gray-600">{stat.label}</p>
                     </CardContent>
                   </Card>
                 ))}
               </div>
 
               {/* Discover Section */}
-              <Card className="border-sage-100">
+              <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm">
                 <CardHeader className="pb-2">
                   <div className="flex justify-between items-center">
-                    <CardTitle className="text-xl">Discover</CardTitle>
-                    <Button variant="ghost" size="sm" className="text-sage-600 hover:text-sage-700 hover:bg-sage-50">
+                    <CardTitle className="text-lg text-[#FF5A5F] font-bold">Discover</CardTitle>
+                    <Button variant="ghost" size="sm" className="text-[#FF5A5F] hover:text-[#FF5A5F]/80 hover:bg-[#FF5A5F]/10">
                       See All
                       <ChevronRight className="ml-1 h-4 w-4" />
                     </Button>
@@ -150,16 +150,16 @@ export default function HomePage() {
                         </div>
                         <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                           <Button size="icon" className="h-8 w-8 rounded-full bg-white/80 hover:bg-white shadow-sm">
-                            <Heart className="h-4 w-4 text-coral-500" />
+                            <Heart className="h-4 w-4 text-[#FF5A5F]" />
                           </Button>
                         </div>
-                        <Badge className="absolute top-2 left-2 bg-sage-500">{profile.mutual} mutual interests</Badge>
+                        <Badge className="absolute top-2 left-2 bg-[#FF5A5F]">{profile.mutual} mutual interests</Badge>
                       </div>
                     ))}
                   </div>
                 </CardContent>
                 <CardFooter className="pt-2">
-                  <Button className="w-full bg-sage-500 hover:bg-sage-600">
+                  <Button className="w-full bg-white text-[#FF5A5F] hover:bg-white/90 border border-[#FF5A5F]/20">
                     <Zap className="mr-2 h-4 w-4" />
                     Find More Matches
                   </Button>
@@ -167,11 +167,11 @@ export default function HomePage() {
               </Card>
 
               {/* Activity Feed */}
-              <Card className="border-sage-100">
+              <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm">
                 <CardHeader className="pb-2">
                   <div className="flex justify-between items-center">
-                    <CardTitle className="text-xl">Activity</CardTitle>
-                    <Button variant="ghost" size="sm" className="text-sage-600 hover:text-sage-700 hover:bg-sage-50">
+                    <CardTitle className="text-xl text-[#FF5A5F] font-bold">Activity</CardTitle>
+                    <Button variant="ghost" size="sm" className="text-[#FF5A5F] hover:text-[#FF5A5F]/80 hover:bg-[#FF5A5F]/10">
                       View All
                       <ChevronRight className="ml-1 h-4 w-4" />
                     </Button>
@@ -294,28 +294,22 @@ export default function HomePage() {
             {/* Right Column - Events, Places, Communities */}
             <div className="space-y-6">
               {/* Premium Upgrade Card */}
-              <Card className="border-none bg-gradient-to-r from-sage-500 to-sage-600 text-white">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-white/20 p-2 rounded-full">
-                      <Sparkles className="h-5 w-5" />
-                    </div>
-                    <h3 className="text-xl font-bold">Upgrade to Premium</h3>
-                  </div>
-                  <p className="mb-4 text-white/90">
-                    Get unlimited matches, see who likes you, and more premium features.
-                  </p>
-                  <Button className="w-full bg-white text-sage-700 hover:bg-white/90">Upgrade Now</Button>
-                </CardContent>
-              </Card>
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20">
+                <div className="flex items-center mb-4">
+                  <Sparkles className="h-6 w-6 mr-2 text-[#FF5A5F]" />
+                  <h3 className="font-bold text-xl text-[#FF5A5F]">Upgrade to Premium</h3>
+                </div>
+                <p className="text-gray-600 mb-6">Get unlimited matches, see who likes you, and more premium features.</p>
+                <Button className="w-full bg-[#FF5A5F] !text-white hover:bg-[#FF5A5F]/90">Upgrade Now</Button>
+              </div>
 
               {/* Upcoming Events */}
-              <Card className="border-sage-100">
+              <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm">
                 <CardHeader className="pb-2">
                   <div className="flex justify-between items-center">
-                    <CardTitle className="text-lg">Upcoming Events</CardTitle>
+                    <CardTitle className="text-lg text-[#FF5A5F] font-bold">Upcoming Events</CardTitle>
                     <Link href="/events">
-                      <Button variant="ghost" size="sm" className="text-sage-600 hover:text-sage-700 hover:bg-sage-50">
+                      <Button variant="ghost" size="sm" className="text-[#FF5A5F] hover:text-[#FF5A5F]/80 hover:bg-[#FF5A5F]/10">
                         View All
                         <ChevronRight className="ml-1 h-4 w-4" />
                       </Button>
@@ -378,12 +372,12 @@ export default function HomePage() {
               </Card>
 
               {/* Popular Places */}
-              <Card className="border-sage-100">
+              <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm">
                 <CardHeader className="pb-2">
                   <div className="flex justify-between items-center">
-                    <CardTitle className="text-lg">Popular Places</CardTitle>
+                    <CardTitle className="text-lg text-[#FF5A5F] font-bold">Popular Places</CardTitle>
                     <Link href="/places">
-                      <Button variant="ghost" size="sm" className="text-sage-600 hover:text-sage-700 hover:bg-sage-50">
+                      <Button variant="ghost" size="sm" className="text-[#FF5A5F] hover:text-[#FF5A5F]/80 hover:bg-[#FF5A5F]/10">
                         View All
                         <ChevronRight className="ml-1 h-4 w-4" />
                       </Button>
@@ -433,7 +427,7 @@ export default function HomePage() {
                           <span>{place.distance}</span>
                         </div>
                       </div>
-                      <div className="flex items-center bg-sage-50 px-2 py-1 rounded text-sage-700">
+                      <div className="flex items-center bg-[#FF5A5F]/10 px-2 py-1 rounded text-[#FF5A5F]">
                         <Star className="h-3 w-3 fill-current mr-1" />
                         <span className="text-xs font-medium">{place.rating}</span>
                       </div>
@@ -443,12 +437,12 @@ export default function HomePage() {
               </Card>
 
               {/* Community Groups */}
-              <Card className="border-sage-100">
+              <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm">
                 <CardHeader className="pb-2">
                   <div className="flex justify-between items-center">
-                    <CardTitle className="text-lg">Your Communities</CardTitle>
+                    <CardTitle className="text-lg text-[#FF5A5F] font-bold">Your Communities</CardTitle>
                     <Link href="/community">
-                      <Button variant="ghost" size="sm" className="text-sage-600 hover:text-sage-700 hover:bg-sage-50">
+                      <Button variant="ghost" size="sm" className="text-[#FF5A5F] hover:text-[#FF5A5F]/80 hover:bg-[#FF5A5F]/10">
                         View All
                         <ChevronRight className="ml-1 h-4 w-4" />
                       </Button>
@@ -496,7 +490,7 @@ export default function HomePage() {
                       </div>
                       <Badge
                         className={
-                          group.role === "Admin" ? "bg-coral-100 text-coral-700" : "bg-slate-100 text-slate-700"
+                          group.role === "Admin" ? "bg-[#FF5A5F] text-white" : "bg-[#FF5A5F]/20 text-[#FF5A5F]"
                         }
                       >
                         {group.role}
@@ -505,7 +499,7 @@ export default function HomePage() {
                   ))}
                 </CardContent>
                 <CardFooter className="pt-0">
-                  <Button variant="outline" className="w-full border-sage-200 text-sage-700 hover:bg-sage-50">
+                  <Button variant="outline" className="w-full border-[#FF5A5F] text-[#FF5A5F] hover:bg-[#FF5A5F]/10">
                     <Plus className="mr-2 h-4 w-4" />
                     Join More Groups
                   </Button>

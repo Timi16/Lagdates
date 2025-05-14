@@ -7,20 +7,20 @@ import { Calendar, MapPin, Users, Coffee, Utensils, Music, Film, BookOpen } from
 
 export default function EventsPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#FF5A5F] to-[#FFC1CC]">
       <Navbar />
 
       <main className="flex-1 container mx-auto py-8 px-4">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-slate-800">Campus Events</h1>
-          <Button className="bg-sage-500 hover:bg-sage-600">Create Event</Button>
+          <h1 className="text-3xl font-bold text-white">Campus Events</h1>
+          <Button className="bg-white text-[#FF5A5F] hover:bg-white/90 shadow-md">Create Event</Button>
         </div>
 
         <Tabs defaultValue="upcoming">
-          <TabsList className="mb-8">
-            <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-            <TabsTrigger value="my-events">My Events</TabsTrigger>
-            <TabsTrigger value="past">Past Events</TabsTrigger>
+          <TabsList className="mb-8 bg-white/20">
+            <TabsTrigger value="upcoming" className="data-[state=active]:bg-white data-[state=active]:text-[#FF5A5F]">Upcoming</TabsTrigger>
+            <TabsTrigger value="my-events" className="data-[state=active]:bg-white data-[state=active]:text-[#FF5A5F]">My Events</TabsTrigger>
+            <TabsTrigger value="past" className="data-[state=active]:bg-white data-[state=active]:text-[#FF5A5F]">Past Events</TabsTrigger>
           </TabsList>
 
           <TabsContent value="upcoming" className="space-y-6">
@@ -81,9 +81,9 @@ export default function EventsPage() {
                   tags: ["Outdoor", "Active"],
                 },
               ].map((event, i) => (
-                <Card key={i} className="border-sage-100 overflow-hidden">
-                  <div className="bg-sage-50 p-4 flex items-center justify-center border-b border-sage-100">
-                    <event.icon className="h-8 w-8 text-sage-500" />
+                <Card key={i} className="border-none shadow-lg bg-white/80 backdrop-blur-sm overflow-hidden">
+                  <div className="bg-[#FF5A5F]/10 p-4 flex items-center justify-center border-b border-white/10">
+                    <event.icon className="h-8 w-8 text-[#FF5A5F]" />
                   </div>
                   <CardContent className="p-4">
                     <div className="mb-3">
@@ -105,7 +105,7 @@ export default function EventsPage() {
                       </div>
                       <div className="flex gap-1">
                         {event.tags.map((tag) => (
-                          <Badge key={tag} variant="outline" className="bg-slate-50 text-xs">
+                          <Badge key={tag} variant="outline" className="bg-[#FF5A5F]/10 text-[#FF5A5F] text-xs border-[#FF5A5F]/20">
                             {tag}
                           </Badge>
                         ))}
@@ -113,8 +113,10 @@ export default function EventsPage() {
                     </div>
 
                     <div className="flex gap-2">
-                      <Button className="flex-1 bg-sage-500 hover:bg-sage-600">RSVP</Button>
-                      <Button variant="outline" className="flex-1 border-slate-200">
+                      <Button className="flex-1 bg-white text-[#FF5A5F] hover:bg-white/90 border border-[#FF5A5F]/20">
+                        RSVP
+                      </Button>
+                      <Button variant="outline" className="flex-1 border-[#FF5A5F]/20 text-[#FF5A5F] hover:bg-[#FF5A5F]/10">
                         Details
                       </Button>
                     </div>
@@ -148,9 +150,9 @@ export default function EventsPage() {
                   status: "Maybe",
                 },
               ].map((event, i) => (
-                <Card key={i} className="border-sage-100 overflow-hidden">
+                <Card key={i} className="border-none shadow-lg bg-white/80 backdrop-blur-sm overflow-hidden">
                   <div className="bg-sage-50 p-4 flex items-center justify-between border-b border-sage-100">
-                    <event.icon className="h-8 w-8 text-sage-500" />
+                    <event.icon className="h-8 w-8 text-[#FF5A5F]" />
                     <Badge className={event.status === "Going" ? "bg-sage-500" : "bg-slate-500"}>{event.status}</Badge>
                   </div>
                   <CardContent className="p-4">
@@ -173,7 +175,7 @@ export default function EventsPage() {
                       </div>
                       <div className="flex gap-1">
                         {event.tags.map((tag) => (
-                          <Badge key={tag} variant="outline" className="bg-slate-50 text-xs">
+                          <Badge key={tag} variant="outline" className="bg-[#FF5A5F]/10 text-[#FF5A5F] text-xs border-[#FF5A5F]/20">
                             {tag}
                           </Badge>
                         ))}
@@ -184,7 +186,7 @@ export default function EventsPage() {
                       <Button variant="outline" className="flex-1 border-slate-200">
                         Cancel RSVP
                       </Button>
-                      <Button variant="outline" className="flex-1 border-slate-200">
+                      <Button variant="outline" className="flex-1 border-[#FF5A5F]/20 text-[#FF5A5F] hover:bg-[#FF5A5F]/10">
                         Details
                       </Button>
                     </div>
@@ -252,7 +254,7 @@ export default function EventsPage() {
                       </div>
                       <div className="flex gap-1">
                         {event.tags.map((tag) => (
-                          <Badge key={tag} variant="outline" className="bg-slate-50 text-xs">
+                          <Badge key={tag} variant="outline" className="bg-[#FF5A5F]/10 text-[#FF5A5F] text-xs border-[#FF5A5F]/20">
                             {tag}
                           </Badge>
                         ))}
