@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState, useRef } from "react"
+import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -13,6 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 
 export default function SignupPage() {
+  const router = useRouter()
   const [step, setStep] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const [profileImage, setProfileImage] = useState<string | null>(null)
@@ -47,7 +49,7 @@ export default function SignupPage() {
     setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)
-      window.location.href = "/home"
+      router.push("/splash")
     }, 1500)
   }
   
